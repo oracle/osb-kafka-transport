@@ -22,6 +22,7 @@ The OSB Transport for Apache Kafka provides inbound and outbound connectivity wi
 * Allows the implementation of native Kafka properties using custom properties.
 * Allows the development of OSB projects using both OSB Console and JDeveloper.
 * Provides JVM properties that controls some behaviors and allows log debugging.
+* Intelligently detects which Apache Kafka version is available on the classpath.
 
 ## Gettting Started
 Oracle Blah provides a XYZ. To install and build, type:
