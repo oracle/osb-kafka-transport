@@ -25,7 +25,7 @@ The OSB Transport for Apache Kafka provides inbound and outbound connectivity wi
 * Intelligently detects which Apache Kafka version is available on the classpath.
 
 ## Gettting Started
-Oracle Blah provides a XYZ. To install and build, type:
+The very first thing you need to do to start playing with the transport is building it from the source. The build process of this transport has been based on the best practices provided in the [product documentation section](https://docs.oracle.com/middleware/1221/osb/develop/GUID-F3574BDE-F053-4015-ACC2-4CE2473B39EA.htm#OSBDV1292) that talks about the development of custom transports. Therefore, if you are familiar with the build concept for custom transports then you should be OK following the steps below.
 
 ```
 npm install -g yo grunt bower grunt-cli
@@ -33,7 +33,7 @@ npm install -g generator-oraclejet
 
 yo oraclejet <app name>
 ```
-For more information about how to install, deploy and use the transport - please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with more details.
+For more information about how to install, deploy and use the transport - please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
 
 ## Contributing
 This project is an open source project. See [CONTRIBUTING](./CONTRIBUTING.md) for details.
