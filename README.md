@@ -35,6 +35,6 @@ This project is an open source project. See [CONTRIBUTING](./CONTRIBUTING.md) fo
 
 Oracle gratefully acknowledges the contributions to open source projects that have been made by the community.
 
-## [License](https://github.com/oracle/oraclejet/tree/master/LICENSE.md)
+## [License](https://github.com/oracle/osb-kafka-transport-sample/LICENSE.md)
 Copyright (c) 2014, 2016 Oracle and/or its affiliates
 The Universal Permissive License (UPL), Version 1.0
