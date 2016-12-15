@@ -1,12 +1,12 @@
 # Oracle Service Bus Transport for Apache Kafka
 
 ## Introduction
-Blah
+After have seen numerous requests from customers and partners about being able to integrate with Kafka, the A-Team decided to write a native transport for Oracle Service Bus (Service Bus for short) to allow the connection and data exchange with Kafka – supporting message consumption and production to Kafka topics. This is done in a way that allows Service Bus to scale jointly with Kafka, both vertically and horizontally.
 
-This is an open source project maintained by Oracle Corp.
+This is an Open-Source project maintained by Oracle Corp.
 
 ## Features and Benefits:
-The Kafka Transport provides inbound and outbound connectivity with Apache Kafka. But this is a oversimplification of what it can really do. The list below summarizes the most important features found in this implementation.
+The Kafka Transport provides inbound and outbound connectivity with Apache Kafka. But this is definetely a oversimplification of what this transport can really do. The list below summarizes the most important features found in this implementation.
 
 * Complete JavaScript development toolkit 
 * Leverages popular open-source technologies
