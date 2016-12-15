@@ -6,7 +6,7 @@ Blah
 This is an open source project maintained by Oracle Corp.
 
 ## Features and Benefits:
-Short intro...
+The Kafka Transport provides inbound and outbound connectivity with Apache Kafka. But this is a oversimplification of what it can really do. The list below summarizes the most important features found in this implementation.
 
 * Complete JavaScript development toolkit 
 * Leverages popular open-source technologies
