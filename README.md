@@ -42,7 +42,13 @@ Next, you need to edit the [build.properties](./build.properties) file and speci
 kafka.home=/opt/kafka_2.11-0.10.0.1
 ```
 
-AAA
+Finally, you will need to specify in the [build.xml](./build.xml) script the filename that represents the Kafka Client API you are using. Different versions has different filenames unfortunately.
+
+```
+<property name="kafka-clients.jar" location="${kafka.home}/libs/kafka-clients-0.10.0.1.jar" />
+```
+
+Now you can execute the script by typing 'ant' in the command-line. Once the build is finished, the implementation files will be generated under the 'build' folder. Alternatively, the implementation files will also be proactively copies into your Fusion Middleware installation.
 
 For more information about how to install, deploy and use the transport - please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
 
