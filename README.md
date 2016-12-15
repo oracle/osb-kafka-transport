@@ -34,6 +34,16 @@ The quickest way to load all the Fusion Middleware information into the environm
 ```
 source $FMW_HOME/user-projects/domains/<DOMAIN_NAME>/bin/setDomainEnv.sh
 ```
+
+Next, you need to edit the [build.properties](./build.properties) file and specify where Apache Kafka is installed.
+
+```
+### Apache Kafka Information
+kafka.home=/opt/kafka_2.11-0.10.0.1
+```
+
+AAA
+
 For more information about how to install, deploy and use the transport - please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
 
 ## Contributing
