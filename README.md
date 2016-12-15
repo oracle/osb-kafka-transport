@@ -28,13 +28,13 @@ npm install -g generator-oraclejet
 
 yo oraclejet <app name>
 ```
-See the [Oracle JET Developer Guide](http://docs.oracle.com/middleware/jet220/jet/) for complete installation details, including prerequisites.
+See the [Introduction Blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) for complete installation details, including prerequisites.
 
 ## Contributing
 This project is an open source project. See [CONTRIBUTING](./CONTRIBUTING.md) for details.
 
 Oracle gratefully acknowledges the contributions to open source projects that have been made by the community.
 
-## [License](https://github.com/oracle/osb-kafka-transport-sample/blob/master/LICENSE.md)
+## License
 Copyright (c) 2014, 2016 Oracle and/or its affiliates
 The Universal Permissive License (UPL), Version 1.0
