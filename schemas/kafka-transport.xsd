@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://oracle/ateam/sb/transports/kafka"
+	xmlns="http://oracle/ateam/sb/transports/kafka"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ts="http://www.bea.com/wli/sb/transports"
+	xmlns:refs="http://www.bea.com/wli/sb/reference"
+	elementFormDefault="qualified">
+
+	<xs:import namespace="http://www.bea.com/wli/sb/transports"
+		schemaLocation="TransportCommon.xsd" />
+
+	<xs:complexType name="KafkaEndPointConfiguration">
+		<xs:sequence>
+                        <xs:element name="topic-name" type="xs:string" />
+	                <xs:element name="request-type" type="xs:string" />
+        	        <xs:element name="response-type" type="xs:string" />
+                        <xs:element name="custom-props" type="xs:string" />
+			<xs:choice>
+				<xs:element name="inbound-properties" type="KafkaInboundPropertiesType" />
+				<xs:element name="outbound-properties" type="KafkaOutboundPropertiesType" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="KafkaInboundPropertiesType">
+                <xs:sequence>
+			<xs:element name="dispatch-policy" type="xs:string" />
+			<xs:element name="consumer-threads" type="xs:short" />
+                        <xs:element name="group-id" type="xs:string" />
+                </xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="KafkaOutboundPropertiesType">
+		<xs:sequence>
+			<xs:element name="acks" type="xs:string" />
+			<xs:element name="timeout-ms" type="xs:integer" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="KafkaRequestMetaDataXML">
+		<xs:complexContent>
+			<xs:extension base="ts:RequestMetaDataXML" />
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="KafkaRequestHeadersXML">
+		<xs:complexContent>
+			<xs:extension base="ts:RequestHeadersXML">
+                        	<xs:sequence>
+					<xs:element name="message-key" type="xs:string" />
+                                        <xs:element name="partition" type="xs:integer" />
+                                        <xs:element name="offset" type="xs:long" />
+				</xs:sequence>
+                        </xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="KafkaResponseMetaDataXML">
+		<xs:complexContent>
+			<xs:extension base="ts:ResponseMetaDataXML" />
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="KafkaResponseHeadersXML">
+		<xs:complexContent>
+			<xs:extension base="ts:ResponseHeadersXML">
+                                <xs:sequence>
+                                        <xs:element name="topic-name" type="xs:string" />
+                                        <xs:element name="partition" type="xs:integer" />
+                                        <xs:element name="offset" type="xs:long" />
+                                </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

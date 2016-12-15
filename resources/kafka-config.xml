@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ProviderConfiguration xmlns="http://www.bea.com/wli/sb/transports">
+
+    <inbound-direction-supported>true</inbound-direction-supported>
+    <outbound-direction-supported>true</outbound-direction-supported>
+	
+    <UDDI />
+	
+    <suppported-message-patterns>
+        <pattern>ONE_WAY</pattern>
+    </suppported-message-patterns>
+
+    <!-- Under normal circumstances, the option below would do the work of
+         activating the endpoints only when the server be up-and-running.
+         However, tests had shown that this option is not suitable for the
+         Kafka Transport needs. In the particular case of Business Services
+         which leverages tha Kafka Client Producer API - the background thread
+         created internally to communicate with Kafka is not aware of Service
+         Bus state, thus causing issues to establish the communication. -->
+
+    <!-- <delay-activation-until-server-running>true</delay-activation-until-server-running> -->
+
+</ProviderConfiguration>

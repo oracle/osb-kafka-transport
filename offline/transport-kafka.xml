@@ -1,0 +1,9 @@
+<plugin xmlns="http://www.bea.com/alsb/offline/extensions">
+
+    <transport class="oracle.ateam.sb.transports.kafka.KafkaTransportProviderFactory" id="kafka" />
+
+    <libraries>
+        <library name='lib/transports/kafka-transport.jar'/>
+    </libraries>
+
+</plugin>

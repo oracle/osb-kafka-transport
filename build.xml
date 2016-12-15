@@ -1,0 +1,248 @@
+<project name="kafka-transport" default="build" basedir=".">
+
+    <!-- set global properties for this build -->
+    <property environment="env"/>
+
+    <!-- removing spaces in the properties file -->
+    <loadproperties srcfile="${basedir}/build.properties">
+        <filterchain>
+            <tokenfilter>
+                <trim/>
+            </tokenfilter>
+        </filterchain>
+    </loadproperties>
+
+    <!--    names defining the kafka transport     -->
+    <property name="kafka.transport.name"            value="Kafka Transport"/>
+    <property name="kafka.appmarker.jar"	     value="appmarker.jar"/>
+    <property name="kafka.transport.jar"             value="kafka-transport.jar"/>
+    <property name="kafka.transport.ear"             value="kafka-transport.ear"/>
+
+    <!--    source directories      -->
+    <property name="kafka.transports.dir"            value="."/>
+    <property name="kafka.transports.src.dir"        value="${kafka.transports.dir}/src"/>
+    <property name="kafka.transports.l10n.dir"       value="${kafka.transports.dir}/l10n"/>
+    <property name="kafka.transports.schemas.dir"    value="${kafka.transports.dir}/schemas"/>
+    <property name="kafka.transports.resources.dir"  value="${kafka.transports.dir}/resources"/>
+    <property name="kafka.transports.offline.dir"    value="${kafka.transports.dir}/offline"/>
+    <property name="kafka.transports.lib.dir"        value="${kafka.transports.dir}/lib"/>
+
+    <!--    build directories, files and archive variables  -->
+    <property name="build.dir.transports.kafka"
+              value="${kafka.transports.dir}/build"/>
+    <property name="build.dir.transports.generated.src"
+              value="${build.dir.transports.kafka}/generatedsrc"/>
+    <property name="build.dir.transports.kafka.classes"
+              value="${build.dir.transports.kafka}/classes"/>
+    <property name="build.dir.transports.kafka.ear"
+              value="${build.dir.transports.kafka}/ear"/>
+
+    <property name="build.kafka.appmarker.jar"
+              value="${kafka.transports.lib.dir}/${kafka.appmarker.jar}"/>
+    <property name="build.kafka.transport.jar"
+              value="${build.dir.transports.kafka}/${kafka.transport.jar}"/>
+    <property name="build.kafka.transport.ear"
+              value="${build.dir.transports.kafka}/${kafka.transport.ear}"/>
+
+    <!--    installation directories / files    -->
+    <property name="osb.lib.dir"                location="${osb.install.dir}/lib"/>
+    <property name="osb.lib.modules.dir"        location="${osb.lib.dir}/modules"/>
+    <property name="osb.lib.transports.dir"     location="${osb.lib.dir}/transports"/>
+    <property name="osb.offline.plugin.dir"     location="${osb.install.dir}/config/plugins"/>
+
+    <!--    classpath libraries     -->
+    <property name="weblogic.jar"
+              location="${wl.home}/server/lib/weblogic.jar"/>
+    <property name="apache-xbean.jar"
+              location="${wl.home}/modules/com.bea.core.xml.xmlbeans.jar"/>
+
+    <property name="kernel-api.jar"
+              value="${osb.lib.modules.dir}/oracle.servicebus.kernel-api.jar"/>
+    <property name="common.jar"
+              value="${osb.lib.modules.dir}/oracle.servicebus.common.jar"/>
+    <property name="configfwk.jar"
+              value="${osb.lib.modules.dir}/oracle.servicebus.configfwk.jar"/>
+
+    <property name="kafka-clients.jar" location="${kafka.home}/libs/kafka-clients-0.10.0.1.jar" />
+
+    <!-- ==================================================================== -->
+    <!--        clean : clean the build directories                          -->
+    <!-- ==================================================================== -->
+
+    <target name="clean" description="Clean the build">
+
+        <echo message="--------------------------------------------------"/>
+        <echo message="|         Kafka Transport Clean Started          |"/>
+        <echo message="--------------------------------------------------"/>
+
+        <delete dir="${build.dir.transports.kafka}" failonerror="true"/>
+        <delete file="${osb.lib.transports.dir}/${kafka.transport.jar}"/>
+        <delete file="${osb.lib.transports.dir}/${kafka.transport.ear}"/>
+        <delete file="${osb.offline.plugin.dir}/transport-kafka.xml"/>
+
+        <echo message="--------------------------------------------------"/>
+        <echo message="|          Kafka Transport Clean Completed      |"/>
+        <echo message="--------------------------------------------------"/>
+
+    </target>
+
+    <!-- ==================================================================== -->
+    <!--        build : build sources and create archives                     -->
+    <!-- ==================================================================== -->
+
+    <!--    root build target   -->
+    <target name="build" description="Builds the Socket XBus transport.">
+
+        <echo message="--------------------------------------------------"/>
+        <echo message="|            Kafka Transport Build Started     |"/>
+        <echo message="--------------------------------------------------"/>
+
+        <antcall target="create_directories" />
+        <antcall target="compile" />
+        <antcall target="create_jar" />
+        <antcall target="create_ear" />
+        <antcall target="install" />
+
+        <echo message="--------------------------------------------------"/>
+        <echo message="|           Kafka Transport Build Completed     |"/>
+        <echo message="--------------------------------------------------"/>
+
+    </target>
+
+    <!--    create the build directory structure    -->
+    <target name="create_directories">
+        <echo message=">>>>>> create_directories >>>>>>"/>
+
+        <mkdir dir="${build.dir.transports.kafka}"/>
+        <mkdir dir="${build.dir.transports.kafka.classes}"/>
+        <mkdir dir="${build.dir.transports.kafka.ear}"/>
+
+        <echo message=">>>>>> Done create_directories >>>>>>"/>
+    </target>
+
+    <!--    main compilation target -->
+    <target name="compile">
+        <echo message=">>>>>> compiling sources started >>>>>>"/>
+        <echo message="debug = ${debug}, optimize = ${optimize}, deprecation = ${deprecation}"/>
+
+        <antcall target="compile.schemas"/>
+        <antcall target="compile.resources"/>
+
+        <javac encoding="iso-8859-1" deprecation="${deprecation}" debug="${debug}" optimize="${optimize}"
+               source="1.7" target="1.7" fork="true"
+               srcdir="${kafka.transports.src.dir}"
+               destdir="${build.dir.transports.kafka.classes}">
+            <classpath>
+                <pathelement path="${apache-xbean.jar}"/>
+                <pathelement path="${configfwk.jar}"/>
+                <pathelement path="${common.jar}"/>
+                <pathelement path="${kernel-api.jar}"/>
+                <pathelement path="${kafka-clients.jar}"/>
+
+                <!-- todo: remove this once we recreate a clean public jar -->
+                <pathelement path="${osb.lib.dir}/modules/oracle.servicebus.services.sources.jar"/>
+            </classpath>
+       </javac>
+
+        <copy todir="${build.dir.transports.kafka.classes}">
+            <fileset dir="${kafka.transports.l10n.dir}"/>
+        </copy>
+        <echo message=">>>>>> compiling sources completed >>>>>>"/>
+    </target>
+
+    <!--    schema compilatiuon -->
+    <target name="compile.schemas">
+        <echo message=">>>>>> compiling schemas started >>>>>>"/>
+
+        <property name="params.schemas.dir"         value="${kafka.transports.schemas.dir}"/>
+        <property name="params.build.dir"           value="${build.dir.transports.kafka.classes}"/>
+        <property name="params.generatedsrc.dir"    value="${build.dir.transports.generated.src}/xbean"/>
+        <property name="extra-params"               value=""/>
+
+        <fileset dir="${params.schemas.dir}" includes="**/*.xsd" id="schema.fileset"/>
+        <pathconvert property="schema.files" pathsep=" " refid="schema.fileset"/>
+
+        <java classname="org.apache.xmlbeans.impl.tool.SchemaCompiler"
+              fork="true"
+              failonerror="yes">
+            <classpath>
+                <pathelement location="${apache-xbean.jar}"/>
+                <pathelement location="${kernel-api.jar}"/>
+            </classpath>
+            <arg line="-d ${params.build.dir}
+                       ${schema.files}
+                       -src ${params.generatedsrc.dir}
+                       ${extra-params}"/>
+        </java>
+
+        <echo message=">>>>>> compiling schemas completed >>>>>>"/>
+    </target>
+
+    <!--    java resources   -->
+    <target name="compile.resources">
+        <copy todir="${build.dir.transports.kafka.classes}">
+            <fileset dir="${kafka.transports.resources.dir}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!--    create a jar containing all the compiled classes of the kafka transport. -->
+    <target name="create_jar">
+        <jar jarfile="${build.kafka.transport.jar}">
+            <fileset dir="${build.dir.transports.kafka.classes}">
+                <include name="**/**"/>
+            </fileset>
+            <manifest>
+               <attribute name="Specification-Version" value="12.1.3"/>
+               <attribute name="Implementation-Version" value="12.1.3"/>
+               <attribute name="Extension-Name" value="transport-kafka"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!--    create the transport ear -->
+    <target name="create_ear">
+
+        <!-- prepare app -->
+        <copy todir="${build.dir.transports.kafka.ear}"
+              file="${build.kafka.appmarker.jar}"
+              overwrite="true"/>
+
+        <!-- create ear -->
+        <ear destfile="${build.kafka.transport.ear}"
+             appxml="${kafka.transports.dir}/META-INF/application.xml"
+             filesetmanifest="merge">
+            <fileset dir="${build.dir.transports.kafka.ear}"/>
+            <metainf dir="${kafka.transports.dir}/META-INF">
+                <include name="**/weblogic-application.xml"/>
+            </metainf>
+            <manifest>
+               <attribute name="Extension-List" value="transport-impl"/>
+               <attribute name="transport-impl-Extension-Name" value="transport-kafka"/>
+            </manifest>
+        </ear>
+
+    </target>
+
+    <!-- ====================================================================   -->
+    <!--        Install : Perform a local install of the transport.             -->
+    <!-- ====================================================================   -->
+
+    <target name="install">
+
+        <!-- stage the transport jar library -->
+        <copy file="${build.kafka.transport.jar}"
+              todir="${osb.lib.transports.dir}"/>
+
+        <!-- stage the transport ear -->
+        <copy file="${build.kafka.transport.ear}"
+              todir="${osb.lib.transports.dir}"/>
+
+        <!-- stage the OSB offline-mode server plugin -->
+        <copy file="${kafka.transports.offline.dir}/transport-kafka.xml"
+              todir="${osb.offline.plugin.dir}"/>
+
+    </target>
+
+</project>
