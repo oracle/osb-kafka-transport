@@ -1,6 +1,6 @@
 # Apache Kafka Transport for Oracle Service Bus
 
-## About the Kafka Transport
+## Introduction
 Blah
 
 This is an open source project maintained by Oracle Corp.
