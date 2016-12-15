@@ -8,7 +8,9 @@ This is an Open-Source project maintained by Oracle Corp.
 ## Features and Benefits:
 The OSB Transport for Apache Kafka provides inbound and outbound connectivity with Apache Kafka. But this is definetely a oversimplification of what this transport can really do. The list below summarizes the most important features found in this implementation.
 
-* Complete JavaScript development toolkit 
+* Supports multiple Apache Kafka versions such as 0.9.X, 0.10.X and above.
+* It is tested against OSB 12.1.3 and 12.2.1. Thus, compatible with SOACS as well.
+* Supports inbound (Proxy Service) and outbound (Business Services) use cases.
 * Leverages popular open-source technologies
 * Full lifecycle management for template based SPA
 * Built in accessibility support
