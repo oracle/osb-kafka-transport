@@ -29,11 +29,11 @@ The very first thing you need to do to start playing with the transport is build
 
 In a nutshell, the build process is based on Ant. The [build.xml](./build.xml) script provided has all the steps necessary to generate the implementation files (kafka-transport.ear and kafka-transport.jar) needed to deploy the transport into your Service Bus domain. However, in order to work the script relies on information from the environment about where to find the Fusion Middleware libraries necessary for the compilation steps. Thus, you will need to build the implementation files in a machine that has a Oracle Service Bus installation. You will also need some libraries from Apache Kafka - the Kafka Clients API to be more precise.
 
-```
-npm install -g yo grunt bower grunt-cli
-npm install -g generator-oraclejet
+The quickest way to load all the Fusion Middleware information into the environment is sourcing the setDomainEnv.sh script from your domain:
 
-yo oraclejet <app name>
+```
+source $FMW_HOME/user-projects/domains/<DOMAIN_NAME>/bin/setDomainEnv.sh
+
 ```
 For more information about how to install, deploy and use the transport - please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
 
