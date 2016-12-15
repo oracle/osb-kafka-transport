@@ -11,15 +11,12 @@ The OSB Transport for Apache Kafka provides inbound and outbound connectivity wi
 * Supports multiple Apache Kafka versions such as 0.9.X, 0.10.X and above.
 * It is tested against OSB 12.1.3 and 12.2.1. Thus, compatible with SOACS as well.
 * Supports inbound (Proxy Service) and outbound (Business Services) use cases.
-* Leverages popular open-source technologies
-* Full lifecycle management for template based SPA
-* Built in accessibility support
-* Support for internationalization (28 languages and 160+ locales)
-* Rich set of UI components
-* Advanced two-way binding with a common model layer
-* Powerful routing system supporting single-page application navigation
-* Smart resource management
-* For intermediate & advanced JS devs
+* Allows inbound processing to be spread out over multiple concurrent threads.
+* Allows association with native WebLogic Work Managers for maximum work control.
+* Allows message level partitioning using Transport Headers for outbound scenarios.
+* Allows fine tuning over delivery semantics by supporting multiple ack modes.
+* Provides native response headers during outbound scenarios for better control.
+* Allows the implementation of native Kafka properties using custom properties.
 
 ## Gettting Started
 Oracle Blah provides a XYZ. To install and build, type:
