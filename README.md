@@ -11,8 +11,8 @@ This is an Open-Source project maintained by Oracle.
 The OSB Transport for Apache Kafka provides inbound and outbound connectivity with Apache Kafka. But this is definetely a oversimplification of what this transport can really do. The list below summarizes the most important features found in this implementation.
 
 * Supports multiple Apache Kafka versions such as 0.9.X, 0.10.X and above.
-* It is tested against OSB 12.1.3 and 12.2.1. Thus, compatible with SOACS as well.
-* Supports inbound (Proxy Service) and outbound (Business Services) use cases.
+* It is tested against OSB 12.1.3/12.2.1. Thus, compatible with SOACS as well.
+* Supports inbound (Proxy Service) and outbound (Business Service) use cases.
 * Allows both text/binary payload types to flow through Service Bus pipelines.
 * Allows inbound processing to be spread out over multiple concurrent threads.
 * Completely integrated with the OSB lifecycle. Smart start of the endpoints.
