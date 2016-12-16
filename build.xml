@@ -63,8 +63,6 @@
     <property name="configfwk.jar"
               value="${osb.lib.modules.dir}/oracle.servicebus.configfwk.jar"/>
 
-    <property name="kafka-clients.jar" location="${kafka.home}/libs/kafka-clients-0.10.0.1.jar" />
-
     <!-- ==================================================================== -->
     <!--        clean : clean the build directories                          -->
     <!-- ==================================================================== -->
@@ -137,7 +135,7 @@
                 <pathelement path="${configfwk.jar}"/>
                 <pathelement path="${common.jar}"/>
                 <pathelement path="${kernel-api.jar}"/>
-                <pathelement path="${kafka-clients.jar}"/>
+                <pathelement path="${kafka.client.api}"/>
 
                 <!-- todo: remove this once we recreate a clean public jar -->
                 <pathelement path="${osb.lib.dir}/modules/oracle.servicebus.services.sources.jar"/>
