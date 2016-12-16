@@ -5,11 +5,11 @@ This project provides a native transport for [OSB](http://www.oracle.com/technet
 
 #### Using the Kafka Transport for Inbound Processing
 
-![Alt text](./images/kafka-transport-inbound.png?style=centerme "Using the Kafka Transport for Inbound Processing")
+->![Alt text](./images/kafka-transport-inbound.png?raw=true)<- "Using the Kafka Transport for Inbound Processing")
 
 #### Using the Kafka Transport for Outbound Processing
 
-![Alt text](./images/kafka-transport-outbound.png?style=centerme "Using the Kafka Transport for Outbound Processing")
+->![Alt text](./images/kafka-transport-outbound.png?raw=true)<- "Using the Kafka Transport for Outbound Processing")
 
 This is an Open-Source project maintained by Oracle.
 
