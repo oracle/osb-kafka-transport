@@ -882,14 +882,15 @@ public class KafkaEndpoint extends AbstractTransportEndPoint {
 					
 					outboundMessageContext = new KafkaOutboundMessageContext(uri);
 					
-					// Theoretically, the situation below should not happen.
-					// Thus, we need to make sure to effectively communicate
-					// such scenario to figure it out the root cause of this
-					// situation. The internal threads created by the producer
-					// API make sure to provide the underlying exception when
-					// something goes wrong, and not being able to provide this
-					// exception can only means that the internal threads are
-					// gone... along with the entire JVM.
+					// It is important to consider that the situation below
+					// might never happen. However, we need to make sure to
+					// effectively communicate such scenario to figure out
+					// the root cause of this situation. The internal network
+					// I/O threads created by the Producer API make sure to
+					// provide the underlying exception when something goes
+					// south; and not being able to provide this exception
+					// can only means that those internal threads are gone,
+					// along with the entire VM.
 					
 					if (exception == null) {
 						
