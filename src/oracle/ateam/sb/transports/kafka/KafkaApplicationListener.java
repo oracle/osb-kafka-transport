@@ -49,11 +49,11 @@ public class KafkaApplicationListener extends ApplicationLifecycleListener {
 		
 		try {
 			
-			// Checking for the Kafka Clients...
+			// Checkings for Kafka Clients API...
 			Class.forName("org.apache.kafka.clients.consumer.KafkaConsumer");
 			Class.forName("org.apache.kafka.clients.producer.KafkaProducer");
 			
-			// Checking for the Third-part...
+			// Checkings for Third-party...
 			Class.forName("org.slf4j.ILoggerFactory");
 			
 			missing = false;
