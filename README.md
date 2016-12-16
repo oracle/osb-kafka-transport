@@ -29,7 +29,7 @@ The very first thing you need to do to start playing with the transport is build
 
 In a nutshell, the build process is based on Ant. The [build.xml](./build.xml) script provided has all the steps necessary to generate the implementation files (kafka-transport.ear and kafka-transport.jar) needed to deploy the transport into your Service Bus domain. However; in order to work, the script relies on information from the environment about where to find the Fusion Middleware JAR files necessary for the code compilation. Thus, you will need to build the implementation files in a machine that has Oracle Service Bus. You will also need the Kafka Clients API JAR file.
 
-The quickest way to load all the Fusion Middleware classpath information into the environment is sourcing the setDomainEnv.sh script from your domain:
+The quickest way to load all the Fusion Middleware information into the environment is sourcing the setDomainEnv.sh script from your domain:
 
 ```
 source $FMW_HOME/user-projects/domains/<DOMAIN_NAME>/bin/setDomainEnv.sh
@@ -38,7 +38,7 @@ source $FMW_HOME/user-projects/domains/<DOMAIN_NAME>/bin/setDomainEnv.sh
 Next, you will need to specify in the [build.properties](./build.properties) file the location of the Kafka Clients API JAR file:
 
 ```
-### Apache Kafka Client API
+### Apache Kafka Clients API
 kafka.clients.api=/opt/kafka_2.11-0.10.0.1/libs/kafka-clients-0.10.1.0.jar
 ```
 
