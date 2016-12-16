@@ -17,11 +17,13 @@ This is an Open-Source project maintained by Oracle.
 The OSB Transport for Apache Kafka provides inbound and outbound connectivity with Apache Kafka. But this is definetely a oversimplification of what this transport can really do. The list below summarizes the most important features found in this implementation.
 
 * Supports multiple Apache Kafka versions such as 0.9.X, 0.10.X and above.
-* It is tested against OSB 12.1.3/12.2.1. Thus, compatible with SOACS as well.
+* It works with the enterprise version of Kafka (Confluent Platform) as well.
+* Designed to work with 12c versions of OSB. Compatible with 12.1.3 and 12.2.1.
+* Can be used both On-Premise and in Cloud deployments, via SOA Cloud Service.
 * Supports inbound (Proxy Service) and outbound (Business Service) use cases.
 * Allows both text/binary payload types to flow through Service Bus pipelines.
 * Allows inbound processing to be spread out over multiple concurrent threads.
-* Completely integrated with the OSB lifecycle. Smart start of the endpoints.
+* Deeper integration with the WebLogic lifecycle. Smartly start the endpoints.
 * Allows sync/async commits when the option 'enable.auto.commit' is disabled.
 * Allows association with native WebLogic Work Managers for maximum work control.
 * Allows message level partitioning using Transport Headers for outbound scenarios.
@@ -30,7 +32,6 @@ The OSB Transport for Apache Kafka provides inbound and outbound connectivity wi
 * Allows the implementation of native Kafka properties using custom properties.
 * Allows the development of OSB projects using both OSB Console and JDeveloper.
 * Provides JVM properties that controls some behaviors and allows log debugging.
-* Intelligently detects which Apache Kafka version is available on the classpath.
 
 ## Gettting Started
 The very first thing you need to do to start playing with the transport is building it from the sources. The build process of this transport has been completely based on the best practices described in the [product documentation section](https://docs.oracle.com/middleware/1221/osb/develop/GUID-F3574BDE-F053-4015-ACC2-4CE2473B39EA.htm#OSBDV1292) about custom transports development. Therefore, if you are familiar with the build process for custom transports then you should be OK following the steps below.
