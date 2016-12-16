@@ -3,6 +3,8 @@
 ## Introduction
 This project provides a native transport for [OSB](http://www.oracle.com/technetwork/middleware/service-bus/overview/index-096326.html) (Oracle Service Bus) that allows connectivity with [Apache Kafka](https://kafka.apache.org/). By using native APIs, the transport allows resilient and high speed access to Apache Kafka clusters. Integration developers can benefit from this transport in the implementation of use cases that requires the integration to/from Apache Kafka with applications (SaaS and On-Premise) supported by OSB, as well as technologies such as JMS, HTTP, MSMQ, Coherence, Tuxedo, MQ, etc.
 
+![Alt text](./kafka-transport.png?raw=true "Kafka Transport for OSB")
+
 This is an Open-Source project maintained by Oracle Corp.
 
 ## Features and Benefits:
