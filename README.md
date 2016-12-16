@@ -30,7 +30,7 @@ The OSB Transport for Apache Kafka provides inbound and outbound connectivity wi
 * Allows fine tuning over delivery semantics by supporting multiple ack modes.
 * Provides native response headers during outbound scenarios for better control.
 * Allows the implementation of native Kafka properties using custom properties.
-* Allows the development of OSB projects using both OSB Console and JDeveloper.
+* Allows the development of OSB projects using both the Console and JDeveloper.
 * Provides JVM properties that controls some behaviors and allows log debugging.
 
 ## Gettting Started
