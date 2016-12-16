@@ -1,5 +1,5 @@
 /*
-** Copyright © 2016 Oracle America, Inc.  All rights reserved.
+** Copyright (c) 2014, 2016 Oracle and/or its affiliates
 ** The Universal Permissive License (UPL), Version 1.0
 *
 ** Subject to the condition set forth below, permission is hereby granted to any person obtaining a copy of this
