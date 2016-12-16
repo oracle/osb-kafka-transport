@@ -52,6 +52,14 @@ kafka.clients.api=/opt/kafka_2.11-0.10.0.1/libs/kafka-clients-0.10.1.0.jar
 
 Now you can simply execute the script by typing 'ant' in the command-line. Once the build finishes, the implementation files will be generated under the newly created 'build' folder. Alternatively, the implementation files will also be proactively copied into your Fusion Middleware installation.
 
+The last step is the deployment of the implementation files into your Service Bus domain. To make things easier, the [install.py](./install/install.py) script encapsulates the details about how to connect to the WebLogic domain, perform the deployment and commiting the changes. Therefore, get into the 'install' folder and simply type:
+
+```
+java weblogic.WLST install.py
+```
+
+The script will ask information about the location of the implementation files and connection details of the WebLogic domain.
+
 For more information about how to install and deploy the implementation files - please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
 
 ## License
