@@ -40,7 +40,7 @@ In a nutshell, the build process is based on Ant. The [build.xml](./build.xml) s
 The quickest way to load all the Fusion Middleware information into the environment is sourcing the setDomainEnv.sh script from your domain:
 
 ```
-source $FMW_HOME/user-projects/domains/<DOMAIN_NAME>/bin/setDomainEnv.sh
+source $FMW_HOME/user-projects/domains/<DOMAIN_NAME>/bin/setDomainEnv.sh <ENTER>
 ```
 
 Next, you will need to specify in the [build.properties](./build.properties) file the location of the Kafka Clients API JAR file:
@@ -52,15 +52,15 @@ kafka.clients.api=/opt/kafka_2.11-0.10.0.1/libs/kafka-clients-0.10.1.0.jar
 
 Now you can simply execute the script by typing 'ant' in the command-line. Once the build finishes, the implementation files will be generated under the newly created 'build' folder. Alternatively, the implementation files will also be proactively copied into your Fusion Middleware installation.
 
-The last step is the deployment of the implementation files into your Service Bus domain. To make things easier, the [install.py](./install/install.py) script encapsulates the details about how to connect to the WebLogic domain, perform the deployment and commiting the changes. Therefore, get into the 'install' folder and simply type:
+The last step is the deployment of the implementation files into your Service Bus domain. To make things easier, the [install.py](./install/install.py) script encapsulates the details about how to connect to the WebLogic domain, perform the deployment and commiting the changes. Therefore, get into the 'install' folder and type:
 
 ```
-java weblogic.WLST install.py
+java weblogic.WLST install.py <ENTER>
 ```
 
 The script will ask information about the location of the implementation files and connection details of the WebLogic domain.
 
-For more information about how to install and deploy the implementation files - please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
+For more information about how to install and deploy the implementation files manually, please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
 
 ## License
 Copyright (c) 2014, 2016 Oracle and/or its affiliates
