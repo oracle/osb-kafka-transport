@@ -60,7 +60,7 @@ java weblogic.WLST install.py <ENTER>
 
 The script will ask information about the location of the implementation files and connection details of the WebLogic domain.
 
-For more information about how to install and deploy the implementation files manually, please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
+For a deeper introduction into the transport, please read a series of [two blogs](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) written in the Oracle A-Team chronicles website. They will provide details about how to use the transport and how to configure it to afford more complex scenarios.
 
 ## License
 Copyright (c) 2014, 2016 Oracle and/or its affiliates
