@@ -23,7 +23,7 @@ The OSB Transport for Apache Kafka provides inbound and outbound connectivity wi
 * Supports inbound (Proxy Service) and outbound (Business Service) use cases.
 * Allows both text/binary payload types to flow through Service Bus pipelines.
 * Allows inbound processing to be spread out over multiple concurrent threads.
-* Deeper integration with the WebLogic lifecycle. Smartly start the endpoints.
+* Deeper integration with WebLogic lifecycle. It smartly starts the endpoints.
 * Allows sync/async commits when the option 'enable.auto.commit' is disabled.
 * Allows association with native WebLogic Work Managers for maximum work control.
 * Allows message level partitioning using Transport Headers for outbound scenarios.
