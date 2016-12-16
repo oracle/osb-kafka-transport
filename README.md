@@ -52,11 +52,6 @@ Now you can simply execute the script by typing 'ant' in the command-line. Once 
 
 For more information about how to install and deploy the implementation files - please read [this blog](http://www.ateam-oracle.com/osb-transport-for-apache-kafka-part-1/) which walkthrough the whole process with details and examples.
 
-## Contributing
-This project is an open source project. See [CONTRIBUTING](./CONTRIBUTING.md) for details.
-
-Oracle gratefully acknowledges the contributions to open source projects that have been made by the community.
-
 ## License
 Copyright (c) 2014, 2016 Oracle and/or its affiliates
 The Universal Permissive License (UPL), Version 1.0
