@@ -35,11 +35,11 @@ The quickest way to load all the Fusion Middleware information into the environm
 source $FMW_HOME/user-projects/domains/<DOMAIN_NAME>/bin/setDomainEnv.sh
 ```
 
-Next, you will need to specify in the [build.properties](./build.properties) file the location of the Kafka Client API:
+Next, you will need to specify in the [build.properties](./build.properties) file the location of the Kafka Clients API:
 
 ```
 ### Apache Kafka Client API
-kafka.client.api=/opt/kafka_2.11-0.10.0.1/libs/kafka-clients-0.10.1.0.jar
+kafka.clients.api=/opt/kafka_2.11-0.10.0.1/libs/kafka-clients-0.10.1.0.jar
 ```
 
 Now you can simply execute the script by typing 'ant' in the command-line. Once the build finishes, the implementation files will be generated under the newly created 'build' folder. Alternatively, the implementation files will also be proactively copied into your Fusion Middleware installation.
