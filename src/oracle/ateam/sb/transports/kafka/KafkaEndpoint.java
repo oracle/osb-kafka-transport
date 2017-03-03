@@ -512,13 +512,17 @@ public class KafkaEndpoint extends AbstractTransportEndPoint {
 		
 		if (isInbound()) {
 			
-			for (InternalConsumer consumer : internalConsumers) {
+			if (internalConsumers != null && !internalConsumers.isEmpty()) {
 				
-				consumer.shutdown();
+				for (InternalConsumer consumer : internalConsumers) {
+					
+					consumer.shutdown();
+					
+				}
+				
+				internalConsumers.clear();
 				
 			}
-			
-			internalConsumers.clear();
 			
 		} else {
 			
